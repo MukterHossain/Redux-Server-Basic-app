@@ -11,21 +11,21 @@ import {
 } from "@/components/ui/dialog"
 import { Form, FormControl,  FormField, FormItem, FormLabel} from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { addUser } from "@/redux/feature/user/userSlice"
-import { useAppDispatch } from "@/redux/hook"
-import type {  IUser } from "@/types"
+// import { addUser } from "@/redux/feature/user/userSlice"
+// import { useAppDispatch } from "@/redux/hook"
+// import type {  IUser } from "@/types"
 
 import { useForm,  type FieldValues, type SubmitHandler } from "react-hook-form"
 
 
 export default function AddUserModel() {
 
-    const dispatch = useAppDispatch()
+    // const dispatch = useAppDispatch()
         const form = useForm()
     
         const onSubmit: SubmitHandler<FieldValues> =(data)=>{
             console.log(data)
-            dispatch(addUser(data as IUser))
+            // dispatch(addUser(data as IUser))
         }
   return (
     <Dialog>
