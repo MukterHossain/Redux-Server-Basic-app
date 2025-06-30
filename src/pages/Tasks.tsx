@@ -6,8 +6,14 @@ import type { ITask } from "@/types"
 
 
 export default function Tasks() {
-    const {data, isLoading} = useGetTasksQuery(undefined)
-    console.log(data)
+    const {data, isLoading, isError} = useGetTasksQuery(undefined, {
+        pollingInterval:30000,
+        refetchOnFocus: true,
+        refetchOnMountOrArgChange: true,
+        refetchOnReconnect: true
+    })
+   
+    console.log({data, isLoading, isError})
     
 
     if(isLoading){
@@ -28,7 +34,7 @@ export default function Tasks() {
                 </Tabs>
                 <AddTaskModel></AddTaskModel>
             </div>
-            <div>
+            <div className="space-y-5">
                 {!isLoading && 
                     data.tasks.map((task : ITask) => (
                         <TaskCard key={task.id} task={task}></TaskCard>
